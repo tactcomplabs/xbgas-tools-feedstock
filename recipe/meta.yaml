@@ -1,4 +1,4 @@
-{% set name = "riscv-tools" %}
+{% set name = "xbgas-tools" %}
 {% set version = environ.get('GIT_DESCRIBE_TAG', 'untagged')|string|replace('-','_') %}
 {% set build_number = environ.get('GIT_DESCRIBE_NUMBER', '0') %}
 
@@ -61,12 +61,14 @@ requirements:
 
 test:
   commands:
-    - test "$($PREFIX/riscv-tools/bin/riscv64-unknown-elf-gcc -dumpversion)" = "9.2.0"
+    - test "$($PREFIX/riscv-tools/bin/riscv64-unknown-elf-gcc -dumpversion)" = "7.1.1"
+    - test "$($PREFIX/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc -dumpversion)" = "7.1.1"
 
 about:
-  home: https://github.com/ucb-bar/riscv-tools-feedstock
-  summary: RISC-V toolchain for UC Berkeley projects
+  home: https://github.com/tactcomplabs/xbgas-tools-feedstock
+  summary: RISC-V toolchain with xBGAS support
 
 extra:
   recipe-maintainers:
-    - abejgonzalez
+    - mjeje
+    - tactcomplabs
