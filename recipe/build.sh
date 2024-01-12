@@ -7,9 +7,6 @@ TOOLCHAIN_NAME=riscv-tools
 # strip debugging info
 export LDFLAGS="$LDFLAGS -s"
 
-# de-init unneeded qemu submodule
-git -C ./riscv-gnu-toolchain submodule deinit --force qemu
-
 NPROC=$CPU_COUNT ./build-toolchains.sh --prefix $PREFIX/$TOOLCHAIN_NAME --clean-after-install
 
 # create activate & deactivate scripts that manage the toolchain
